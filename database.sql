@@ -61,6 +61,6 @@ RETURNING "username", "account_balance" AS "new_account_balance";
 
 -- The Bank needs to track last names.
 
-ALTER TABLE table_name
-ADD COLUMN new_column_name data_type;
+ALTER TABLE "accounts"
+ADD COLUMN "last_name" VARCHAR(75);
 
