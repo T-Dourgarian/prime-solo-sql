@@ -34,7 +34,7 @@ WHERE "username" LIKE '%a%';
  --How do you get all users with account balances that are more than $100?
  SELECT * FROM "accounts"
  WHERE "account_balance" > '100';
- 
+
 -- How do you add a new account?
 INSERT INTO accounts (username, city, transactions_completed, transactions_attempted, account_balance) VALUES ('Jimmy', 'Neutron', 1, 1, 99999999.00);  
 
@@ -47,6 +47,20 @@ WHERE "city" = 'miami'
 OR "city" = 'phoenix'
 AND "transactions_completed" < '5';
 
+-- Anthony moved to Santa Fe
 
+UPDATE "accounts"
+SET "city"='santa fe'
+WHERE "username"='anthony';
 
+-- Travis made a withdrawl of $20,000. What's their new balance? NOTE: Research RETURNING
+
+UPDATE "accounts" SET "account_balance" = "account_balance" - '20000'
+WHERE "user_id" = '4'
+RETURNING "username", "account_balance" AS "new_account_balance";
+
+-- The Bank needs to track last names.
+
+ALTER TABLE table_name
+ADD COLUMN new_column_name data_type;
 
